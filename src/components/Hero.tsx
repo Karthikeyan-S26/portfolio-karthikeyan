@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -11,16 +12,19 @@ const Hero = () => {
 
   useEffect(() => {
     if (index < fullText.length) {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         setDisplayText(prevText => prevText + fullText[index]);
         setIndex(prevIndex => prevIndex + 1);
       }, animationSpeed);
+      return () => clearTimeout(timeout);
     }
-    return () => clearTimeout();
   }, [index, fullText]);
 
   const controls = useAnimation();
-  const [ref, inView] = useInView();
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
 
   useEffect(() => {
     if (inView) {
