@@ -124,7 +124,7 @@ const Hero = () => {
           className="mb-8"
         >
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-gray-800 dark:text-white mb-4"
+            className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-sm"
             initial={{ opacity: 0, rotateX: -90 }}
             animate={{ opacity: 1, rotateX: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -146,7 +146,7 @@ const Hero = () => {
           </motion.h1>
           
           <motion.div 
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 min-h-[2rem]"
+            className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 min-h-[2rem] font-medium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -188,7 +188,7 @@ const Hero = () => {
               borderColor: "rgb(59, 130, 246)"
             }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center space-x-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group backdrop-blur-sm"
+            className="flex items-center space-x-2 border-2 border-gray-400 dark:border-gray-600 text-gray-800 dark:text-gray-300 px-8 py-4 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group backdrop-blur-sm bg-white/10 dark:bg-gray-800/20"
           >
             <Mail size={20} className="group-hover:animate-wiggle" />
             <span>Connect With Me</span>
@@ -202,7 +202,7 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-gray-400 dark:text-gray-500"
+            className="text-gray-500 dark:text-gray-400"
           >
             <ChevronDown size={32} className="animate-pulse" />
           </motion.div>
