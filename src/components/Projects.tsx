@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, X } from 'lucide-react';
@@ -68,9 +69,9 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Featured Projects</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
-          <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-700 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and passion for development
           </p>
         </motion.div>
@@ -84,7 +85,7 @@ const Projects = () => {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -96,8 +97,8 @@ const Projects = () => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.summary}</p>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{project.title}</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">{project.summary}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
@@ -118,7 +119,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       <Github size={18} />
                       <span className="text-sm">Code</span>
@@ -130,7 +131,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       <ExternalLink size={18} />
                       <span className="text-sm">Demo</span>
@@ -165,7 +166,7 @@ const Projects = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-white dark:bg-gray-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
               >
                 <div className="relative">
                   <img
@@ -175,15 +176,15 @@ const Projects = () => {
                   />
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="absolute top-4 right-4 bg-white/90 rounded-full p-2 hover:bg-white transition-colors"
+                    className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2 hover:bg-white dark:hover:bg-gray-800 transition-colors"
                   >
-                    <X size={20} />
+                    <X size={20} className="text-gray-800 dark:text-gray-200" />
                   </button>
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">{selectedProject.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{selectedProject.description}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{selectedProject.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-6">{selectedProject.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
                     {selectedProject.tags.map((tag) => (
