@@ -1,73 +1,202 @@
-# Welcome to your Lovable project
 
-## Project info
+# Karthikeyan S - Portfolio Website
 
-**URL**: https://lovable.dev/projects/17a90598-5104-495a-b07a-303b03ccb795
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS, showcasing the skills, projects, and achievements of Karthikeyan S, a passionate IT student and full-stack developer.
 
-## How can I edit this code?
+## 🌟 Features
 
-There are several ways of editing your application.
+- **Modern Design**: Clean, professional design with smooth animations
+- **Fully Responsive**: Optimized for all devices (mobile, tablet, desktop)
+- **Interactive Animations**: Powered by Framer Motion for engaging user experience
+- **SEO Optimized**: Meta tags, structured data, and semantic HTML
+- **Performance Focused**: Optimized images, lazy loading, and efficient code
+- **Accessibility**: ARIA attributes and keyboard navigation support
 
-**Use Lovable**
+## 🚀 Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/17a90598-5104-495a-b07a-303b03ccb795) and start prompting.
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Routing**: React Router
+- **Icons**: Lucide React
+- **Build Tool**: Vite
+- **Deployment**: Ready for Vercel/Netlify
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📁 Project Structure
 
-**Use your preferred IDE**
+```
+src/
+├── components/
+│   ├── Navbar.tsx          # Navigation with smooth scrolling
+│   ├── Hero.tsx            # Hero section with typewriter effect
+│   ├── About.tsx           # About section with profile info
+│   ├── Skills.tsx          # Skills showcase with progress bars
+│   ├── Projects.tsx        # Project portfolio with modals
+│   ├── Achievements.tsx    # Timeline of achievements
+│   ├── Contact.tsx         # Contact form with validation
+│   └── Footer.tsx          # Footer with social links
+├── pages/
+│   ├── Index.tsx           # Main landing page
+│   └── NotFound.tsx        # 404 error page
+├── hooks/
+│   └── use-toast.ts        # Toast notification hook
+├── lib/
+│   └── utils.ts            # Utility functions
+└── App.tsx                 # Main app component
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Installation & Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-Follow these steps:
+### Clone and Install
+```bash
+# Clone the repository
+git clone https://github.com/karthikeyan/portfolio.git
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Navigate to project directory
+cd portfolio
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Available Scripts
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🎨 Customization
 
-**Use GitHub Codespaces**
+### Colors & Themes
+The color scheme can be customized in `tailwind.config.ts`:
+```typescript
+colors: {
+  primary: {
+    DEFAULT: 'hsl(var(--primary))',
+    foreground: 'hsl(var(--primary-foreground))'
+  },
+  // Add custom colors here
+}
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Content Updates
+- **Personal Info**: Update `src/components/About.tsx`
+- **Skills**: Modify `src/components/Skills.tsx`
+- **Projects**: Update project data in `src/components/Projects.tsx`
+- **Achievements**: Edit timeline in `src/components/Achievements.tsx`
 
-## What technologies are used for this project?
+### SEO & Meta Tags
+Update SEO information in `index.html`:
+```html
+<title>Your Name - Full Stack Developer</title>
+<meta name="description" content="Your description" />
+```
 
-This project is built with:
+## 🚀 Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy with default settings
 
-## How can I deploy this project?
+### Netlify
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder to Netlify
 
-Simply open [Lovable](https://lovable.dev/projects/17a90598-5104-495a-b07a-303b03ccb795) and click on Share -> Publish.
+### GitHub Pages
+1. Install gh-pages: `npm install --save-dev gh-pages`
+2. Add deploy script to package.json:
+   ```json
+   "scripts": {
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+3. Build and deploy: `npm run build && npm run deploy`
 
-## Can I connect a custom domain to my Lovable project?
+## 📱 Features Overview
 
-Yes, you can!
+### Navigation
+- Sticky navbar with scroll effects
+- Smooth scrolling to sections
+- Active section highlighting
+- Mobile-responsive menu
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Hero Section
+- Typewriter animation effect
+- Call-to-action buttons
+- Scroll indicator
+- Gradient backgrounds
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Skills Section
+- Interactive skill cards
+- Progress bars with animations
+- Hover effects
+- Grid layout
+
+### Projects Section
+- Project cards with hover effects
+- Modal popups for detailed views
+- Tech stack tags
+- External links to demos and code
+
+### Contact Form
+- Form validation
+- Loading states
+- Error handling
+- Success feedback
+
+## 🔧 Performance Optimizations
+
+- **Image Optimization**: WebP images with fallbacks
+- **Code Splitting**: Route-based code splitting
+- **Lazy Loading**: Components and images loaded on demand
+- **Minification**: CSS and JS minification in production
+- **Caching**: Optimized caching headers
+
+## 📈 SEO Features
+
+- Semantic HTML structure
+- Meta tags for social sharing
+- Structured data (JSON-LD)
+- Sitemap generation
+- Robot.txt configuration
+
+## 🛡️ Accessibility
+
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast compliance
+- Focus management
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/new-feature`
+3. Commit changes: `git commit -am 'Add new feature'`
+4. Push to branch: `git push origin feature/new-feature`
+5. Submit a pull request
+
+## 📞 Contact
+
+**Karthikeyan S**
+- Email: karthikeyan.s@email.com
+- LinkedIn: [linkedin.com/in/karthikeyan](https://linkedin.com/in/karthikeyan)
+- GitHub: [github.com/karthikeyan](https://github.com/karthikeyan)
+
+---
+
+Built with ❤️ using React & Tailwind CSS
