@@ -3,21 +3,33 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-    if (errors[e.target.name]) {
+    if (errors[e.target.name as keyof FormErrors]) {
       setErrors({
         ...errors,
         [e.target.name]: ''
@@ -26,7 +38,7 @@ const Contact = () => {
   };
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: FormErrors = {};
     
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -46,7 +58,7 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
@@ -68,14 +80,14 @@ const Contact = () => {
     {
       icon: <Mail size={24} />,
       title: 'Email',
-      value: 'karthikeyan.s@email.com',
-      link: 'mailto:karthikeyan.s@email.com'
+      value: 'karthisenthil026@gmail.com',
+      link: 'mailto:karthisenthil026@gmail.com'
     },
     {
       icon: <Phone size={24} />,
       title: 'Phone',
-      value: '+91 9876543210',
-      link: 'tel:+919876543210'
+      value: '+91 8939533725',
+      link: 'tel:+918939533725'
     },
     {
       icon: <MapPin size={24} />,
@@ -86,7 +98,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -95,9 +107,9 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Get In Touch</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? I'd love to hear from you!
           </p>
         </motion.div>
@@ -111,8 +123,8 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6">Let's Connect</h3>
-              <p className="text-gray-600 mb-8">
+              <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Let's Connect</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
                 I'm always open to discussing new opportunities, interesting projects, 
                 or just having a chat about technology and innovation.
               </p>
@@ -132,16 +144,16 @@ const Contact = () => {
                     {info.icon}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">{info.title}</h4>
+                    <h4 className="font-semibold text-gray-800 dark:text-white">{info.title}</h4>
                     {info.link ? (
                       <a
                         href={info.link}
-                        className="text-gray-600 hover:text-blue-600 transition-colors"
+                        className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <span className="text-gray-600">{info.value}</span>
+                      <span className="text-gray-600 dark:text-gray-300">{info.value}</span>
                     )}
                   </div>
                 </motion.div>
@@ -157,7 +169,7 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Name
                 </label>
                 <input
@@ -166,8 +178,8 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all ${
-                    errors.name ? 'border-red-500 animate-pulse' : 'border-gray-300'
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
+                    errors.name ? 'border-red-500 animate-pulse' : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="Your Name"
                 />
@@ -183,7 +195,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Email
                 </label>
                 <input
@@ -192,8 +204,8 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all ${
-                    errors.email ? 'border-red-500 animate-pulse' : 'border-gray-300'
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
+                    errors.email ? 'border-red-500 animate-pulse' : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="your.email@example.com"
                 />
@@ -209,7 +221,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -218,8 +230,8 @@ const Contact = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none ${
-                    errors.message ? 'border-red-500 animate-pulse' : 'border-gray-300'
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
+                    errors.message ? 'border-red-500 animate-pulse' : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="Tell me about your project or just say hello!"
                 />

@@ -29,7 +29,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <motion.div
@@ -38,14 +38,14 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-800 dark:text-white mb-6">
               Hi, I'm{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Karthikeyan S
               </span>
             </h1>
             
-            <div className="text-xl md:text-2xl text-gray-600 h-8 mb-8">
+            <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 h-8 mb-8">
               {displayedText}
               <motion.span
                 animate={{ opacity: [1, 0] }}
@@ -76,7 +76,7 @@ const Hero = () => {
               onClick={scrollToContact}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition-all duration-300"
+              className="flex items-center space-x-2 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 px-8 py-4 rounded-lg font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300"
             >
               <MessageCircle size={20} />
               <span>Connect With Me</span>
@@ -94,11 +94,11 @@ const Hero = () => {
               transition={{ duration: 2, repeat: Infinity }}
               className="inline-block"
             >
-              <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+              <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center">
                 <motion.div
                   animate={{ y: [0, 12, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+                  className="w-1 h-3 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"
                 />
               </div>
             </motion.div>
