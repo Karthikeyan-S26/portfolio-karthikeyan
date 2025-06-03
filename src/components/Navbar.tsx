@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Download, Moon, Sun } from 'lucide-react';
+import { Download, Moon, Sun } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = () => {
@@ -59,7 +59,8 @@ const Navbar = () => {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                whileHover={{ y: -2 }}
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className={`relative text-sm font-medium transition-colors duration-200 ${
                   activeSection === item.id
                     ? 'text-blue-600'
@@ -80,33 +81,15 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <motion.button
               onClick={toggleTheme}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
             
-            <motion.a
-              href="https://github.com/Karthikeyan-S26"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <Github size={20} />
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com/in/karthikeyan-s-tech"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, rotate: -5 }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <Linkedin size={20} />
-            </motion.a>
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg transition-shadow"
             >
